@@ -1,0 +1,107 @@
+import iphoneImg from "../images/iphone-12-pro.jpg";
+import kurtaImg from "../images/kurta.jpg";
+import bikeImg from "../images/bike.jpg";
+import cricketImg from "../images/cricket.jpeg";
+import necklaceImg from "../images/necklace.jpg";
+
+import { Product } from '../types';
+
+
+export const mockProducts: Product[] = [
+  {
+    id: '1',
+    title: 'iPhone 12 Pro - Excellent Condition',
+    description: 'Barely used iPhone 12 Pro in pristine condition. Comes with original box, charger, and protective case. Battery health at 98%. Perfect for photography enthusiasts.',
+    category: 'Electronics',
+    price: 45000,
+    image: iphoneImg,
+    sellerId: 'seller1',
+    sellerName: 'Rajesh Kumar',
+    createdAt: '2024-01-15T10:30:00Z',
+    updatedAt: '2024-01-15T10:30:00Z',
+  },
+  {
+    id: '2',
+    title: 'Designer Kurta Set - Traditional Wear',
+    description: 'Beautiful handcrafted kurta set with intricate embroidery. Worn only once for a wedding. Size L. Perfect for festivals and special occasions.',
+    category: 'Clothing',
+    price: 2800,
+    image: kurtaImg,
+    sellerId: 'seller2',
+    sellerName: 'Priya Sharma',
+    createdAt: '2024-01-14T15:45:00Z',
+    updatedAt: '2024-01-14T15:45:00Z',
+  },
+  {
+    id: '3',
+    title: 'Royal Enfield Classic 350 - 2020 Model',
+    description: 'Well-maintained Royal Enfield Classic 350. Single owner, all papers clear. Recently serviced. Excellent mileage and smooth ride.',
+    category: 'Vehicles',
+    price: 135000,
+    image: bikeImg,
+    sellerId: 'seller3',
+    sellerName: 'Amit Singh',
+    createdAt: '2024-01-13T09:20:00Z',
+    updatedAt: '2024-01-13T09:20:00Z',
+  },
+  {
+    id: '4',
+    title: 'Teak Wood Study Table',
+    description: 'Solid teak wood study table with drawers. Perfect for home office or student use. Minor scratches but structurally sound. Dimensions: 4ft x 2ft.',
+    category: 'Furniture',
+    price: 8500,
+    image: 'https://images.pexels.com/photos/4112236/pexels-photo-4112236.jpeg?auto=compress&cs=tinysrgb&w=500',
+    sellerId: 'seller4',
+    sellerName: 'Meera Gupta',
+    createdAt: '2024-01-12T14:10:00Z',
+    updatedAt: '2024-01-12T14:10:00Z',
+  },
+  {
+    id: '5',
+    title: 'Canon DSLR Camera with Lens Kit',
+    description: 'Canon EOS 1500D DSLR with 18-55mm lens. Great for beginners and enthusiasts. Includes camera bag, extra battery, and memory card.',
+    category: 'Electronics',
+    price: 32000,
+    image: 'https://images.pexels.com/photos/90946/pexels-photo-90946.jpeg?auto=compress&cs=tinysrgb&w=500',
+    sellerId: 'seller5',
+    sellerName: 'Rohit Verma',
+    createdAt: '2024-01-11T11:30:00Z',
+    updatedAt: '2024-01-11T11:30:00Z',
+  },
+  {
+    id: '6',
+    title: 'Indoor Plants Collection - Set of 5',
+    description: 'Beautiful collection of indoor plants including money plant, snake plant, and peace lily. Perfect for home decoration and air purification.',
+    category: 'Home & Garden',
+    price: 1200,
+    image: 'https://images.pexels.com/photos/1409226/pexels-photo-1409226.jpeg?auto=compress&cs=tinysrgb&w=500',
+    sellerId: 'seller6',
+    sellerName: 'Sunita Patel',
+    createdAt: '2024-01-10T16:45:00Z',
+    updatedAt: '2024-01-10T16:45:00Z',
+  },
+  {
+    id: '7',
+    title: 'Cricket Kit - Professional Grade',
+    description: 'Complete cricket kit including bat, pads, gloves, helmet, and kit bag. Lightly used. Perfect for aspiring cricketers.',
+    category: 'Sports',
+    price: 4500,
+    image: cricketImg,
+    sellerId: 'seller7',
+    sellerName: 'Vikash Kumar',
+    createdAt: '2024-01-09T13:20:00Z',
+    updatedAt: '2024-01-09T13:20:00Z',
+  },
+  {
+    id: '8',
+    title: 'Gold Necklace - Traditional Design',
+    description: '22k gold necklace with traditional Indian design. Perfect for weddings and festivals. Comes with authenticity certificate.',
+    category: 'Jewelry',
+    price: 85000,
+    image: necklaceImg,
+    sellerId: 'seller8',
+    sellerName: 'Kavitha Reddy',
+    createdAt: '2024-01-08T10:15:00Z',
+    updatedAt: '2024-01-08T10:15:00Z',
+  }
+];

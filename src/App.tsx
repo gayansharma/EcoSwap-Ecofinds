@@ -1,96 +1,91 @@
 import React, { useState } from 'react';
-import { AuthProvider, useAuth } from './context/AuthContext';
-import { AppProvider } from './context/AppContext';
+import { AuthProvider, useAuth } from './contexts/AuthContext';
+import { CartProvider } from './contexts/CartContext';
+import AuthForm from './components/AuthForm';
+import Navbar from './components/Navbar';
+import Home from './pages/Home';
+import ProductDetail from './pages/ProductDetail';
+import AddProduct from './pages/AddProduct';
+import MyListings from './pages/MyListings';
+import Cart from './pages/Cart';
+import UserDashboard from './pages/UserDashboard';
+import Purchases from './pages/Purchases';
 import { Product } from './types';
 
-// Pages
-import AuthPage from './pages/AuthPage';
-import HomePage from './pages/HomePage';
-import AddProductPage from './pages/AddProductPage';
-import MyListingsPage from './pages/MyListingsPage';
-import ProductDetailPage from './pages/ProductDetailPage';
-import CartPage from './pages/CartPage';
-import PurchasesPage from './pages/PurchasesPage';
-import DashboardPage from './pages/DashboardPage';
+type ViewType = 'home' | 'product-detail' | 'add-product' | 'my-listings' | 'cart' | 'dashboard' | 'purchases';
 
-// Components
-import Header from './components/Header';
-
-type PageType = 'home' | 'addProduct' | 'myListings' | 'productDetail' | 'cart' | 'purchases' | 'dashboard';
-
-function AppContent() {
-  const { user } = useAuth();
-  const [currentPage, setCurrentPage] = useState<PageType>('home');
+const AppContent: React.FC = () => {
+  const { isAuthenticated } = useAuth();
+  const [currentView, setCurrentView] = useState<ViewType>('home');
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
-  const [editingProduct, setEditingProduct] = useState<Product | null>(null);
+  const [searchQuery, setSearchQuery] = useState('');
 
-  const handleNavigate = (page: PageType) => {
-    setCurrentPage(page);
-    setSelectedProduct(null);
-    setEditingProduct(null);
+  const handleViewChange = (view: ViewType) => {
+    setCurrentView(view);
+    if (view !== 'product-detail') {
+      setSelectedProduct(null);
+    }
   };
 
-  const handleViewProduct = (product: Product) => {
+  const handleProductSelect = (product: Product) => {
     setSelectedProduct(product);
-    setCurrentPage('productDetail');
+    setCurrentView('product-detail');
   };
 
-  const handleEditProduct = (product: Product) => {
-    setEditingProduct(product);
-    setCurrentPage('addProduct');
+  const handleProductAdded = () => {
+    // Refresh the home page or listings
+    setCurrentView('my-listings');
   };
 
-  if (!user) {
-    return <AuthPage />;
+  if (!isAuthenticated) {
+    return <AuthForm />;
   }
 
-  const renderPage = () => {
-    switch (currentPage) {
+  const renderContent = () => {
+    switch (currentView) {
       case 'home':
         return (
-          <HomePage 
-            onNavigate={handleNavigate} 
-            onViewProduct={handleViewProduct}
+          <Home
+            searchQuery={searchQuery}
+            onProductSelect={handleProductSelect}
           />
         );
-      case 'addProduct':
-        return (
-          <AddProductPage 
-            onBack={() => handleNavigate(editingProduct ? 'myListings' : 'home')}
-            editProduct={editingProduct}
-          />
-        );
-      case 'myListings':
-        return (
-          <MyListingsPage 
-            onNavigate={handleNavigate}
-            onEditProduct={handleEditProduct}
-            onViewProduct={handleViewProduct}
-          />
-        );
-      case 'productDetail':
+      case 'product-detail':
         return selectedProduct ? (
-          <ProductDetailPage 
+          <ProductDetail
             product={selectedProduct}
-            onBack={() => handleNavigate('home')}
+            onBack={() => setCurrentView('home')}
           />
-        ) : (
-          <HomePage 
-            onNavigate={handleNavigate} 
-            onViewProduct={handleViewProduct}
+        ) : null;
+      case 'add-product':
+        return (
+          <AddProduct
+            onBack={() => setCurrentView('home')}
+            onProductAdded={handleProductAdded}
+          />
+        );
+      case 'my-listings':
+        return (
+          <MyListings
+            onAddProduct={() => setCurrentView('add-product')}
+            onEditProduct={(product) => {
+              // For now, just redirect to add product
+              setCurrentView('add-product');
+            }}
+            onProductSelect={handleProductSelect}
           />
         );
       case 'cart':
-        return <CartPage onBack={() => handleNavigate('home')} />;
-      case 'purchases':
-        return <PurchasesPage onBack={() => handleNavigate('home')} />;
+        return <Cart />;
       case 'dashboard':
-        return <DashboardPage onBack={() => handleNavigate('home')} />;
+        return <UserDashboard />;
+      case 'purchases':
+        return <Purchases />;
       default:
         return (
-          <HomePage 
-            onNavigate={handleNavigate} 
-            onViewProduct={handleViewProduct}
+          <Home
+            searchQuery={searchQuery}
+            onProductSelect={handleProductSelect}
           />
         );
     }
@@ -98,20 +93,25 @@ function AppContent() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <Header currentPage={currentPage} onNavigate={handleNavigate} />
+      <Navbar
+        currentView={currentView}
+        onViewChange={handleViewChange}
+        searchQuery={searchQuery}
+        onSearchChange={setSearchQuery}
+      />
       <main>
-        {renderPage()}
+        {renderContent()}
       </main>
     </div>
   );
-}
+};
 
 function App() {
   return (
     <AuthProvider>
-      <AppProvider>
+      <CartProvider>
         <AppContent />
-      </AppProvider>
+      </CartProvider>
     </AuthProvider>
   );
 }

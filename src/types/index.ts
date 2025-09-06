@@ -3,10 +3,10 @@ export interface User {
   email: string;
   username: string;
   fullName: string;
-  phone?: string;
-  location?: string;
-  joinedDate: string;
+  phone: string;
+  address: string;
   avatar?: string;
+  createdAt: string;
 }
 
 export interface Product {
@@ -15,42 +15,41 @@ export interface Product {
   description: string;
   category: string;
   price: number;
-  imageUrl: string;
+  image: string;
   sellerId: string;
   sellerName: string;
   createdAt: string;
-  status: 'active' | 'sold' | 'inactive';
+  updatedAt: string;
 }
 
 export interface CartItem {
+  id: string;
+  productId: string;
   product: Product;
   quantity: number;
+  addedAt: string;
 }
 
 export interface Purchase {
   id: string;
-  product: Product;
+  userId: string;
+  items: CartItem[];
+  totalAmount: number;
   purchaseDate: string;
-  price: number;
   status: 'completed' | 'pending' | 'cancelled';
 }
 
-export interface AuthContextType {
-  user: User | null;
-  login: (email: string, password: string) => Promise<boolean>;
-  signup: (email: string, password: string, username: string) => Promise<boolean>;
-  logout: () => void;
-  updateProfile: (updates: Partial<User>) => void;
-}
+export const CATEGORIES = [
+  'Electronics',
+  'Clothing',
+  'Home & Garden',
+  'Sports',
+  'Books',
+  'Furniture',
+  'Vehicles',
+  'Jewelry',
+  'Toys',
+  'Others'
+] as const;
 
-export interface AppContextType {
-  products: Product[];
-  cart: CartItem[];
-  purchases: Purchase[];
-  addToCart: (product: Product) => void;
-  removeFromCart: (productId: string) => void;
-  addProduct: (product: Omit<Product, 'id' | 'sellerId' | 'sellerName' | 'createdAt'>) => void;
-  updateProduct: (id: string, updates: Partial<Product>) => void;
-  deleteProduct: (id: string) => void;
-  purchaseItems: () => void;
-}
+export type Category = typeof CATEGORIES[number];

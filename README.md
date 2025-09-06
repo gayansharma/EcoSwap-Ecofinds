@@ -1,247 +1,259 @@
-# EcoFinds - Sustainable Second-Hand Marketplace
+# EvoSwap - Sustainable Marketplace Platform
 
-A comprehensive web application that empowers sustainable consumption through a trusted second-hand marketplace platform. Built with React, TypeScript, and Tailwind CSS.
+EvoSwap is a beautiful, fully-featured marketplace for second-hand goods designed to promote sustainable consumption and reduce waste. Built with modern React technologies and Tailwind CSS, it provides a seamless experience for buying and selling pre-owned items.
 
-## 🌱 Project Overview
+## 🌟 Features
 
-EcoFinds is designed to revolutionize how people buy and sell pre-owned goods by creating a vibrant, trusted platform that extends the lifecycle of products, reduces waste, and provides an accessible alternative to purchasing new items. The platform fosters a culture of sustainability while connecting conscious consumers in a thriving community.
+### Authentication & User Management
+- **Secure Authentication**: Email and password-based login/signup system
+- **User Profiles**: Editable profile with personal information management
+- **User Dashboard**: Comprehensive dashboard with account statistics and activity
 
-## ✨ Features
+### Product Management
+- **Product Listings**: Create, read, update, and delete product listings
+- **Rich Product Details**: Title, description, category, price, and image support
+- **Category System**: Pre-defined categories for easy organization
+- **Image Gallery**: Select from curated high-quality images
 
-### Core Functionality
-- **User Authentication**: Secure registration and login system with email/password
-- **Profile Management**: Comprehensive user dashboard with editable profile information
-- **Product Listing Management**: Full CRUD operations for product listings
-- **Advanced Browse & Search**: Category filtering and keyword search capabilities
-- **Shopping Cart**: Add/remove items with quantity management
-- **Purchase History**: Track all previous purchases with environmental impact metrics
-- **Product Detail Views**: Comprehensive product information display
+### Shopping Experience
+- **Advanced Search**: Keyword-based search functionality
+- **Smart Filtering**: Filter by categories with real-time results
+- **Sorting Options**: Sort by newest, price (low to high), or price (high to low)
+- **Grid/List Views**: Toggle between different viewing modes
+- **Shopping Cart**: Add, remove, and manage items before purchase
+- **Checkout System**: Complete purchase flow with order confirmation
 
-### User Experience
-- **Responsive Design**: Optimized for mobile, tablet, and desktop devices
-- **Modern UI/UX**: Clean, intuitive interface with smooth animations
-- **Real-time Updates**: Instant feedback for all user actions
-- **Image Management**: Support for product images with suggested stock photos
+### Purchase History
+- **Order Tracking**: Complete purchase history with detailed information
+- **Order Statistics**: Summary of total orders, spending, and items purchased
+- **Order Details**: View individual order items and status
 
-### Environmental Focus
-- **Sustainability Metrics**: Track environmental impact of purchases
-- **Eco-friendly Design**: Green color palette emphasizing environmental consciousness
-- **Waste Reduction**: Emphasis on extending product lifecycles
+### Design & UX
+- **Responsive Design**: Optimized for mobile, tablet, and desktop
+- **Modern UI**: Clean, professional design with smooth animations
+- **Indian Market Focus**: Pricing in Indian Rupees (₹) and local context
+- **Accessibility**: Well-structured with proper contrast and navigation
 
-## 🛠 Tech Stack
+## 🛠️ Technology Stack
 
 - **Frontend**: React 18 with TypeScript
-- **Styling**: Tailwind CSS for responsive design
-- **Icons**: Lucide React for consistent iconography
-- **Build Tool**: Vite for fast development and optimized builds
+- **Styling**: Tailwind CSS
+- **Icons**: Lucide React
+- **Build Tool**: Vite
 - **State Management**: React Context API
-- **Data Storage**: LocalStorage for persistence (demo purposes)
+- **Data Storage**: Local Storage (for MVP demonstration)
+- **Images**: High-quality stock photos from Pexels
 
 ## 📁 Project Structure
 
 ```
 src/
 ├── components/          # Reusable UI components
-│   ├── Header.tsx      # Navigation header with cart indicator
-│   ├── ProductCard.tsx # Product display card with actions
-│   └── LoadingSpinner.tsx # Loading state component
-├── pages/              # Main application pages
-│   ├── AuthPage.tsx    # Login/registration page
-│   ├── HomePage.tsx    # Product browsing and search
-│   ├── AddProductPage.tsx # Create/edit product listings
-│   ├── MyListingsPage.tsx # Manage user's listings
-│   ├── ProductDetailPage.tsx # Detailed product view
-│   ├── CartPage.tsx    # Shopping cart management
-│   ├── PurchasesPage.tsx # Purchase history
-│   └── DashboardPage.tsx # User profile management
-├── context/            # Global state management
-│   ├── AuthContext.tsx # Authentication state
-│   └── AppContext.tsx  # Application state (products, cart, purchases)
-├── types/              # TypeScript type definitions
+│   ├── AuthForm.tsx    # Authentication form component
+│   ├── Navbar.tsx      # Navigation bar with search
+│   └── ProductCard.tsx # Product display card
+├── contexts/           # React Context providers
+│   ├── AuthContext.tsx # Authentication state management
+│   └── CartContext.tsx # Shopping cart state management
+├── data/              # Mock data and constants
+│   └── mockProducts.ts # Sample product data
+├── pages/             # Main application views
+│   ├── AddProduct.tsx  # Product creation form
+│   ├── Cart.tsx        # Shopping cart view
+│   ├── Home.tsx        # Main product listing page
+│   ├── MyListings.tsx  # User's product listings
+│   ├── ProductDetail.tsx # Individual product view
+│   ├── Purchases.tsx   # Purchase history
+│   └── UserDashboard.tsx # User profile management
+├── types/             # TypeScript type definitions
 │   └── index.ts        # All application types
-├── data/               # Mock data and constants
-│   └── mockData.ts     # Sample users, products, and categories
-└── App.tsx             # Main application component
+├── App.tsx            # Main application component
+├── main.tsx          # Application entry point
+└── index.css         # Global styles
 ```
 
 ## 🚀 Getting Started
 
 ### Prerequisites
-- Node.js (version 16 or higher)
-- npm or yarn package manager
 
-### Installation
+- **Node.js**: Version 16 or higher
+- **npm**: Comes with Node.js
+- **Windows PowerShell**: For Windows users
 
-1. **Clone the repository** (if applicable) or use the existing project structure
+### Installation & Setup
 
-2. **Install dependencies**:
-   ```bash
+1. **Clone or Download the Project**
+   ```powershell
+   # If you have the project files, navigate to the directory
+   cd path\to\evoswap-project
+   ```
+
+2. **Install Dependencies**
+   ```powershell
    npm install
    ```
 
-3. **Start the development server**:
-   ```bash
+3. **Start Development Server**
+   ```powershell
    npm run dev
    ```
 
-4. **Open your browser** and navigate to the provided local development URL (typically `http://localhost:5173`)
+4. **Open in Browser**
+   - The application will start on `http://localhost:5173`
+   - Open your browser and navigate to this URL
 
 ### Available Scripts
 
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run preview` - Preview production build locally
-- `npm run lint` - Run ESLint for code quality
+```powershell
+# Start development server
+npm run dev
 
-## 🎯 Usage Guide
-
-### Getting Started
-1. **Registration**: Create a new account with email, password, and username
-2. **Demo Login**: Use the provided demo credentials (email: john@example.com, password: password)
-
-### Browsing Products
-- Browse all available items on the homepage
-- Use the search bar to find specific items
-- Filter by categories using the dropdown menu
-- Click "View" to see detailed product information
-
-### Listing Items
-1. Click the "Add New Listing" button
-2. Fill in product details (title, description, category, price)
-3. Add an image URL or choose from suggested stock photos
-4. Submit to create your listing
-
-### Managing Listings
-- Navigate to "My Listings" to see your products
-- Edit or delete listings using the action buttons
-- View listing statistics and status
-
-### Shopping
-1. Add items to cart from product cards or detail pages
-2. View cart by clicking the cart icon in the header
-3. Review items and proceed to checkout
-4. Completed purchases appear in your purchase history
-
-### Profile Management
-- Access the dashboard via the profile icon
-- Edit personal information including name, phone, and location
-- Choose from suggested profile pictures
-- View account statistics
-
-## 🎨 Design System
-
-### Color Palette
-- **Primary Green**: #10B981 (emerald-500) - Main brand color
-- **Secondary Blue**: #3B82F6 (blue-500) - Secondary actions
-- **Accent Orange**: #F59E0B (orange-500) - Call-to-action elements
-- **Success**: Green tones for positive actions
-- **Warning**: Orange tones for caution
-- **Error**: Red tones for errors
-
-### Typography
-- **Headings**: Font weights 600-800 for hierarchy
-- **Body Text**: Regular weight with 150% line height
-- **Small Text**: Used for metadata and helper text
-
-### Components
-- **Cards**: Rounded corners with subtle shadows
-- **Buttons**: Rounded with hover states and transitions
-- **Forms**: Clean inputs with focus states
-- **Navigation**: Sticky header with mobile-responsive menu
-
-## 💾 Data Management
-
-### Local Storage
-The application uses localStorage for data persistence:
-- `ecofinds_user` - Current user information
-- `ecofinds_cart_{userId}` - User-specific cart items
-- `ecofinds_purchases_{userId}` - User-specific purchase history
-
-### Mock Data
-Initial data includes:
-- Sample product listings across various categories
-- Demo user account for testing
-- Predefined categories for filtering
-
-## 🌍 Environmental Impact
-
-EcoFinds tracks and displays environmental benefits:
-- **Items Saved**: Count of products given second life
-- **CO2 Reduction**: Estimated carbon footprint savings
-- **Resource Conservation**: Percentage of resources saved through reuse
-
-## 🔧 Customization
-
-### Adding New Categories
-Edit `src/data/mockData.ts` to add new product categories:
-```typescript
-export const categories = [
-  'All Categories',
-  'Your New Category',
-  // ... existing categories
-];
-```
-
-### Styling Modifications
-The application uses Tailwind CSS. Modify styles by:
-1. Editing utility classes in components
-2. Extending the Tailwind config in `tailwind.config.js`
-3. Adding custom CSS in `src/index.css`
-
-### Feature Extensions
-The modular architecture allows easy feature additions:
-- Add new pages in `src/pages/`
-- Create reusable components in `src/components/`
-- Extend types in `src/types/index.ts`
-- Add context providers for new global state
-
-## 🚀 Production Deployment
-
-### Build for Production
-```bash
+# Build for production
 npm run build
+
+# Preview production build
+npm run preview
+
+# Run linting
+npm run lint
 ```
 
-### Deployment Options
-The built application can be deployed to:
-- Netlify
-- Vercel
-- GitHub Pages
-- Any static file hosting service
+## 🔧 Development Setup on Windows
 
-### Environment Variables
-For production deployment, consider implementing:
-- API endpoints for data persistence
-- Authentication services
-- Image upload services
-- Payment processing
+### Using PowerShell
+
+1. **Open PowerShell as Administrator**
+   - Press `Win + X` and select "Windows PowerShell (Admin)"
+
+2. **Navigate to Project Directory**
+   ```powershell
+   cd "C:\path\to\your\evoswap-project"
+   ```
+
+3. **Install Dependencies**
+   ```powershell
+   npm install
+   ```
+
+4. **Start Development**
+   ```powershell
+   npm run dev
+   ```
+
+### Using VS Code
+
+1. **Open VS Code**
+2. **Open Terminal** (`Ctrl + `` ` ` `` )
+3. **Ensure you're in the project directory**
+4. **Run the commands above**
+
+## 📱 Usage Guide
+
+### For First-Time Users
+
+1. **Sign Up**: Create an account with email and username
+2. **Browse Products**: Explore the marketplace on the home page
+3. **Search & Filter**: Use search bar and category filters to find items
+4. **Add to Cart**: Click the cart icon on products you want to buy
+5. **Checkout**: Go to cart and complete your purchase
+
+### For Sellers
+
+1. **Add Products**: Click "Sell" button to list new items
+2. **manage Listings**: View and edit your products in "My Listings"
+3. **Track Performance**: Monitor your listings and sales
+
+### Key Features to Explore
+
+- **Search Functionality**: Try searching for different products
+- **Category Filters**: Filter products by categories like Electronics, Clothing, etc.
+- **User Dashboard**: Update your profile information
+- **Purchase History**: Track all your past purchases
+- **Cart Management**: Add/remove items and proceed to checkout
+
+## 🎨 Design Philosophy
+
+EvoSwap follows modern design principles with:
+
+- **Clean Typography**: Readable fonts with proper hierarchy
+- **Consistent Spacing**: 8px spacing system throughout
+- **Color System**: Emerald primary color (#10B981) with semantic colors
+- **Responsive Layout**: Mobile-first approach with breakpoints
+- **Micro-interactions**: Subtle animations and hover effects
+- **Accessibility**: WCAG compliant contrast ratios and navigation
+
+## 🌍 Indian Market Features
+
+- **Currency**: All prices displayed in Indian Rupees (₹)
+- **Categories**: Products suited for Indian market preferences
+- **Cultural Context**: UI text and examples relevant to Indian users
+- **Local Imagery**: Product images representing common items in India
+
+## 📊 MVP Features Checklist
+
+- ✅ User Authentication (Login/Signup)
+- ✅ User Profile Management
+- ✅ Product CRUD Operations
+- ✅ Product Search and Filtering
+- ✅ Shopping Cart Functionality
+- ✅ Purchase History
+- ✅ Responsive Design
+- ✅ Category-based Organization
+- ✅ Product Detail Views
+- ✅ User Dashboard
+
+## 🔮 Future Enhancements
+
+- **Backend Integration**: Replace local storage with proper database
+- **Payment Gateway**: Integrate with Indian payment systems (Razorpay, etc.)
+- **Image Upload**: Allow users to upload their own product images
+- **Messaging System**: Enable communication between buyers and sellers
+- **Reviews & Ratings**: Product and seller rating system
+- **Location-based Filtering**: Show products based on user location
+- **Wishlist**: Save products for later purchase
+- **Push Notifications**: Order updates and new product alerts
+
+## 🐛 Troubleshooting
+
+### Common Issues
+
+1. **Port Already in Use**
+   ```powershell
+   # Kill process on port 5173
+   npx kill-port 5173
+   # Or use a different port
+   npm run dev -- --port 3000
+   ```
+
+2. **Module Not Found Errors**
+   ```powershell
+   # Clear npm cache and reinstall
+   npm cache clean --force
+   npm install
+   ```
+
+3. **PowerShell Execution Policy**
+   ```powershell
+   # If scripts are blocked, run:
+   Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+   ```
 
 ## 🤝 Contributing
 
-This project follows standard React development practices:
-1. Use TypeScript for type safety
-2. Follow the existing component structure
-3. Maintain responsive design principles
-4. Add proper error handling
-5. Include loading states for async operations
+This is an MVP project created for demonstration purposes. To contribute:
 
-## 📱 Browser Support
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Test thoroughly
+5. Submit a pull request
 
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
-- Mobile browsers (iOS Safari, Chrome Mobile)
+## 📄 License
 
-## 🔒 Security Considerations
-
-For production use, implement:
-- Secure authentication with JWT tokens
-- Input validation and sanitization
-- HTTPS enforcement
-- Content Security Policy headers
-- Rate limiting for API endpoints
+This project is created for educational and demonstration purposes.
 
 ---
 
-**EcoFinds** - Empowering sustainable consumption through trusted second-hand marketplace technology. Built with modern web technologies for a seamless, eco-conscious shopping experience.
+**Built with ❤️ for sustainable commerce in India**
+
+For questions or support, please refer to the documentation or create an issue in the project repository.
